@@ -18,11 +18,11 @@
 
 ## Usage
 
-The object returned from createStream is a full readableStream - you can pause, resume, etc.
+The object returned from createStream is a full readable Stream - you can pause, resume, destroy, etc.
 
 createStream optionally takes a camera number and defaults to 0 for the main camera
 
-Each data event is a full image buffer from the camera - the framerate is variable on your CPU (should be an option in the future). To convert the buffer to send down to the browser just to ```buffer.toString('base64')```
+Each data event is a full image buffer from the camera - the framerate is variable on your CPU (should be an option in the future). To convert the buffer to a base64 data uri (for the browser) just do ```"data:image/png;base64," + buffer.toString('base64')``` 
 
 ```coffee-script
 camera = require 'camera'
@@ -45,7 +45,7 @@ camera = require 'camera'
 webcam = camera.createStream()
 
 webcam.on 'data', (buffer) ->
-  fs.writeFileSync 'cam.jpg', buffer
+  fs.writeFileSync 'cam.png', buffer
   webcam.destroy()
 ```
 
