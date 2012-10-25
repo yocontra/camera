@@ -1,9 +1,9 @@
 language: node_js
 before_install:
- - deb http://ppa.launchpad.net/gijzelaar/cuda/ubuntu oneiric main
- - deb-src http://ppa.launchpad.net/gijzelaar/cuda/ubuntu oneiric main
- - deb http://ppa.launchpad.net/gijzelaar/opencv2.3/ubuntu oneiric main
- - deb-src http://ppa.launchpad.net/gijzelaar/opencv2.3/ubuntu oneiric main
+ - sudo sh -c "echo 'deb http://ppa.launchpad.net/gijzelaar/cuda/ubuntu oneiric main' >>/etc/apt/sources.list"
+ - sudo sh -c "echo 'deb-src http://ppa.launchpad.net/gijzelaar/cuda/ubuntu oneiric main' >>/etc/apt/sources.list"
+ - sudo sh -c "echo 'deb http://ppa.launchpad.net/gijzelaar/opencv2.3/ubuntu oneiric main' >>/etc/apt/sources.list"
+ - sudo sh -c "echo 'deb-src http://ppa.launchpad.net/gijzelaar/opencv2.3/ubuntu oneiric main' >>/etc/apt/sources.list"
  - sudo apt-get update -qq --allow-unauthenticated
  - sudo apt-get install -qq --allow-unauthenticated libcv-dev
 node_js:
