@@ -1,14 +1,14 @@
-![status](https://secure.travis-ci.org/wearefractal/APPNAME.png?branch=master)
+![status](https://secure.travis-ci.org/wearefractal/camera.png?branch=master)
 
 ## Information
 
 <table>
 <tr> 
-<td>Package</td><td>APPNAME</td>
+<td>Package</td><td>camera</td>
 </tr>
 <tr>
 <td>Description</td>
-<td>NOTHING HERE YET</td>
+<td>Create readable streams from connected webcams</td>
 </tr>
 <tr>
 <td>Node Version</td>
@@ -18,13 +18,36 @@
 
 ## Usage
 
+The object returned from createStream is a full readableStream - you can pause, resume, etc.
+
+createStream optionally takes a camera number and defaults to 0 for the main camera
+
+Each data event is a full image buffer from the camera - the framerate is variable on your CPU (should be an option in the future). To convert the buffer to send down to the browser just to ```buffer.toString('base64')```
+
 ```coffee-script
-NOTHING HERE YET
+camera = require 'camera'
+
+webcam = camera.createStream()
+
+webcam.on 'data', (buffer) ->
+  # do something with image buffer
 ```
 
 ## Examples
 
-You can view more examples in the [example folder.](https://github.com/wearefractal/APPNAME/tree/master/examples)
+
+#### Take a picture
+
+```coffee-script
+fs = require 'fs'
+camera = require 'camera'
+
+webcam = camera.createStream()
+
+webcam.on 'data', (buffer) ->
+  fs.writeFileSync 'cam.jpg', buffer
+  webcam.destroy()
+```
 
 ## LICENSE
 
