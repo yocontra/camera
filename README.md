@@ -16,6 +16,10 @@
 </tr>
 </table>
 
+## Dependencies
+
+This library requires that you have OpenCV installed - go to the OpenCV site for instructions.
+
 ## Usage
 
 The object returned from createStream is a full readable Stream - you can pause, resume, destroy, etc.
