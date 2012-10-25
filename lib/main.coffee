@@ -2,9 +2,9 @@ Stream = require 'stream'
 cv = require 'opencv'
 
 module.exports =
+  snapshot: (s, cb) -> s.on 'data', cb
   createStream: (idx=0) ->
     cam = new cv.VideoCapture idx
-
 
     s = new Stream
     s.readable = true

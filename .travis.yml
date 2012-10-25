@@ -1,7 +1,9 @@
 language: node_js
 before_install:
- - sudo add-apt-repository ppa:gijzelaar/cuda -y
- - sudo add-apt-repository ppa:gijzelaar/opencv2.3 -y
+ - deb http://ppa.launchpad.net/gijzelaar/cuda/ubuntu oneiric main
+ - deb-src http://ppa.launchpad.net/gijzelaar/cuda/ubuntu oneiric main
+ - deb http://ppa.launchpad.net/gijzelaar/opencv2.3/ubuntu oneiric main
+ - deb-src http://ppa.launchpad.net/gijzelaar/opencv2.3/ubuntu oneiric main
  - sudo apt-get update -qq --allow-unauthenticated
  - sudo apt-get install -qq --allow-unauthenticated libcv-dev
 node_js:
