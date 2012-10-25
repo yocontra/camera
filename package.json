@@ -1,7 +1,7 @@
 {
    "name":"camera",
    "description":"Create readable streams from connected webcams",
-   "version":"0.0.1",
+   "version":"0.0.2",
    "homepage":"http://github.com/wearefractal/camera",
    "repository":"git://github.com/wearefractal/camera.git",
    "author":"Fractal <contact@wearefractal.com> (http://wearefractal.com/)",
