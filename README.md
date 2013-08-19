@@ -39,11 +39,11 @@ webcam.on 'data', (buffer) ->
   # do something with image buffer
 ```
 
-#### snapshot(stream, callback)
+#### snapshot(callback)
 
 Sugar for ```s.once 'data', cb``` - callback receives one image buffer
 
-#### record(stream, milliseconds, cb)
+#### record(milliseconds, cb)
 
 Returns an array of video frames for the time-span specified in milliseconds
 
