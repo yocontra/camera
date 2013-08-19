@@ -49,7 +49,7 @@ describe 'camera', ->
       return done() if process.env.CI
       cam = camera.createStream()
       should.exist cam
-      camera.snapshot cam, (buf) ->
+      cam.snapshot (buf) ->
         should.exist buf
         cam.destroy()
         done()
@@ -59,8 +59,7 @@ describe 'camera', ->
       return done() if process.env.CI
       cam = camera.createStream()
       should.exist cam
-      camera.record cam, 1000, (bufs) ->
+      cam.record 1000, (bufs) ->
         should.exist bufs
-        console.log bufs.length
         cam.destroy()
         done()
