@@ -6,15 +6,16 @@ module.exports =
     cam = new cv.VideoCapture idx
 
     s = es.readable (count, cb) ->
-      cam.read (err, i) =>
+      s.snapshot (err, buf) =>
         if err
           @emit 'error', err
         else
-          @emit 'data', i.toBuffer()
+          @emit 'data', buf
         cb()
 
     s.snapshot = (cb) ->
-      s.once 'data', cb
+      cam.read (err, i) ->
+        cb err, i.toBuffer()
 
     s.record = (ms, cb) ->
       vid = []

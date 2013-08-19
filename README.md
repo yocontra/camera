@@ -41,7 +41,7 @@ webcam.on 'data', (buffer) ->
 
 #### snapshot(callback)
 
-Sugar for ```s.once 'data', cb``` - callback receives one image buffer
+Returns an error and one image buffer to the given callback.
 
 #### record(milliseconds, cb)
 
@@ -59,11 +59,14 @@ camera = require 'camera'
 
 webcam = camera.createStream()
 
+webcam.on 'error', (err) ->
+  console.log 'error reading data', err
+
 webcam.on 'data', (buffer) ->
   fs.writeFileSync 'cam.png', buffer
   webcam.destroy()
 
-webcam.snapshot (buffer) ->
+webcam.snapshot (err, buffer) ->
 
 webcam.record 1000, (buffers) ->
   

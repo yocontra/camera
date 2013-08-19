@@ -49,7 +49,8 @@ describe 'camera', ->
       return done() if process.env.CI
       cam = camera.createStream()
       should.exist cam
-      cam.snapshot (buf) ->
+      cam.snapshot (err, buf) ->
+        should.not.exist err
         should.exist buf
         cam.destroy()
         done()
