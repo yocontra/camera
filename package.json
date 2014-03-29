@@ -6,11 +6,10 @@
    "repository":"git://github.com/wearefractal/camera.git",
    "author":"Fractal <contact@wearefractal.com> (http://wearefractal.com/)",
    "main":"./index.js",
-   
    "dependencies":{
       "coffee-script":"*",
-      "opencv":"*",
-      "event-stream":"*"
+      "opencv":"~0.5.0",
+      "event-stream":"~3.1.1"
    },
    "devDependencies":{
       "mocha":"*",
