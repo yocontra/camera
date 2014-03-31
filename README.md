@@ -16,10 +16,6 @@
 </tr>
 </table>
 
-## Discontinued
-
-Use node-opencv's VideoStream
-
 ## Dependencies
 
 This library requires that you have OpenCV installed - go to the OpenCV site for instructions.
