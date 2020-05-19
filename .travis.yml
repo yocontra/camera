@@ -1,10 +1,3 @@
 language: node_js
-before_install:
- - sudo add-apt-repository ppa:gijzelaar/opencv2.4 -y
- - sudo apt-get update -qq --allow-unauthenticated
- - sudo apt-get install -qq --allow-unauthenticated libopencv-dev 
 node_js:
-  - 0.6
-  - 0.7
-  - 0.8
-  - 0.9
+  - 12
