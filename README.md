@@ -20,7 +20,10 @@
 
 You'll need OpenCV 4 or newer installed before installing.
 
+You may need to `export OPENCV4NODEJS_DISABLE_AUTOBUILD=1` before running `npm install`.
+
 ## Specific for macOS
+
 Install OpenCV using brew
 ```bash
 brew update

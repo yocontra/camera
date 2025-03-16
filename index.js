@@ -1,12 +1,21 @@
-const from = require('from2')
-const cv = require('opencv4nodejs')
+const { Readable } = require('stream')
+const cv = require('@u4/opencv4nodejs')
 
 module.exports = {
   createStream: (idx=0) => {
     const cam = new cv.VideoCapture(idx)
 
-    const s = from((count, cb) => {
-      s.snapshot(cb)
+    const s = new Readable({
+      objectMode: true,
+      read() {
+        s.snapshot((err, data) => {
+          if (err) {
+            this.destroy(err)
+            return
+          }
+          this.push(data)
+        })
+      }
     })
 
     s.snapshot = (cb) => {
@@ -16,15 +25,15 @@ module.exports = {
       })
     }
 
-    s.record = (ms, cb) => {
-      const vid = []
-      const push = (buf) => vid.push(buf)
+    s.record = (duration, cb) => {
+      const frames = []
+      const push = (buf) => frames.push(buf)
       const clear = () => {
         s.removeListener('data', push)
-        cb(vid)
+        cb(frames)
       }
 
-      setTimeout(clear, ms)
+      setTimeout(clear, duration)
       s.on('data', push)
     }
 

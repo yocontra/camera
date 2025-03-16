@@ -1,14 +1,16 @@
 {
   "name": "camera",
   "description": "Just a dead simple package to create readable streams from connected webcams",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "homepage": "http://github.com/contra/camera",
   "repository": "git://github.com/contra/camera.git",
   "author": "Contra <yo@contra.io> (https://contra.io)",
   "main": "./index.js",
   "dependencies": {
-    "from2": "^2.3.0",
-    "opencv4nodejs": "^5.6.0"
+    "@u4/opencv4nodejs": "^7.1.2"
+  },
+  "opencv4nodejs": {
+    "disableAutoBuild": "1"
   },
   "devDependencies": {
     "mocha": "*",
